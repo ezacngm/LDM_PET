@@ -18,7 +18,7 @@ def get_tokenizer_and_model(model_type, device, eval_mode=True):
 def get_text_representation(text, text_tokenizer, text_model, device,
                             truncation=True,
                             padding='max_length',
-                            max_length=77):
+                            max_length=76):
     token_output = text_tokenizer(text,
                                   truncation=truncation,
                                   padding=padding,
