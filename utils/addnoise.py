@@ -19,7 +19,7 @@ def addnoise(img,count = 5e6):
         raise ValueError("input shape is wrong")
     assert h == w ,"input pet image has wrong shape"
     pbeam = ParallelBeam(h,np.linspace(0, np.pi, h, endpoint=False))
-    proj = pbeam.forward(img)  # 投影到sinogram
+    proj = pbeam.forward(img)
     mul_factor = th.ones_like(proj)
     mul_factor = mul_factor + (torch.rand_like(mul_factor) * 0.2 - 0.1)
     noise = torch.ones_like(proj) * torch.mean(mul_factor * proj, dim=(-1, -2), keepdims=True) * 0.2
